@@ -3,12 +3,12 @@ package pl.programator.car.rent.gui;
 import pl.programator.car.rent.model.Car;
 import pl.programator.car.rent.repositories.CarRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GUI {
-    CarRepository carRepository = new CarRepository();
-
-    public void showMainMenu() {
+    public static final CarRepository carRepository = new CarRepository();
+    public static void showMainMenu() {
         System.out.println("1. Lista dostepnych aut");
         System.out.println("2. Wypozycz");
         System.out.println("3. Exit");
@@ -18,7 +18,7 @@ public class GUI {
 
         switch (choose) {
             case "1":
-                Car[] cars = carRepository.getAvailableCars();
+                List<Car> cars = carRepository.getAvailableCars();
                 for (Car currentCar : cars) {
                     currentCar.printCar();
                 }
